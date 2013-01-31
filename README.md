@@ -1,21 +1,32 @@
 adding-kernel-tracepoints
 =========================
 
-Repository of my analysis on tracepoints currently in the Linux kernel
+Once upon a time there was a Linux Kernel tracing suite called LTTng that was creating its own patch to add tracepoints in the kernel.
+
+
+
+##Repository of my analysis on tracepoints currently in the Linux kernel.
+
 
 How static tracepoints are add to the Linux Kernel?
+I first started by looking inside the kernel to know how tracepoint were added.
+To add a tracepoint, one has to use that macro [TRACE_EVENT](http://lxr.linux.no/linux+v3.7.4/include/linux/tracepoint.h#L388).
+The use of this macro is shown in the next code snippet. In this example, we can see that the event declared is the sched_switch which is a very commun event.
 ~~~sh
 
 /*
  * Tracepoint for task switches, performed by the scheduler:
  */
 TRACE_EVENT(sched_switch,
-
+	
+#1	
 	TP_PROTO(struct task_struct *prev,
 		 struct task_struct *next),
 
+#2
 	TP_ARGS(prev, next),
 
+#3
 	TP_STRUCT__entry(
 		__array(	char,	prev_comm,	TASK_COMM_LEN	)
 		__field(	pid_t,	prev_pid			)
@@ -26,6 +37,7 @@ TRACE_EVENT(sched_switch,
 		__field(	int,	next_prio			)
 	),
 
+#4	
 	TP_fast_assign(
 		memcpy(__entry->next_comm, next->comm, TASK_COMM_LEN);
 		__entry->prev_pid	= prev->pid;
@@ -36,7 +48,9 @@ TRACE_EVENT(sched_switch,
 		__entry->next_prio	= next->prio;
 	),
 
-	TP_printk("prev_comm=%s prev_pid=%d prev_prio=%d prev_state=%s%s ==> next_comm=%s next_pid=%d next_prio=%d",
+#4	
+	TP_printk(
+	"prev_comm=%s prev_pid=%d prev_prio=%d prev_state=%s%s ==> next_comm=%s next_pid=%d next_prio=%d",
 		__entry->prev_comm, __entry->prev_pid, __entry->prev_prio,
 		__entry->prev_state & (TASK_STATE_MAX-1) ?
 		  __print_flags(__entry->prev_state & (TASK_STATE_MAX-1), "|",
@@ -49,8 +63,9 @@ TRACE_EVENT(sched_switch,
 ~~~
 
 
-Once upon a time there was a Linux Kernel tracing suite called LTTng that was creating its own patch to add tracepoints in the kernel.
-The first part of the analysis was to find what were the tracepoint alrgi
+The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
+
+
 Page fault : Discussions on the Linux Kernel Mailing List
 
 [1] https://lkml.org/lkml/2010/11/10/89

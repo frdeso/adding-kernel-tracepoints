@@ -62,12 +62,12 @@ TRACE_EVENT(sched_switch,
 );
 ~~~
 Here i will explain the five macro calls that are the arguments of this tracepoint declaration.
-#1	[TP_PROTO](http://lxr.linux.no/linux+v3.7.5/include/linux/tracepoint.h#L101)
+1.	[TP_PROTO](http://lxr.linux.no/linux+v3.7.5/include/linux/tracepoint.h#L101)
 
-#2
-#3
-#4
-#5
+2.
+3.
+4.
+5.
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 
 

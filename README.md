@@ -82,3 +82,16 @@ Discussions on the Linux Kernel Mailing List
 [1] https://lkml.org/lkml/2010/11/10/89
 
 [2] https://lkml.org/lkml/2011/4/29/488
+
+###Questions? 
+
+1. How to handle recursive page faulting. Can the tracer page fault during the recording of a page fault?
+
+Jiri Olsa wrote ([sources](https://lkml.org/lkml/2010/11/10/556)):
+> The user stack trace can fault when examining the trace. Which
+> would call the do_page_fault handler, which would trace again,
+> which would do the user stack trace, which would fault and call
+> do_page_fault again ...
+
+2.
+

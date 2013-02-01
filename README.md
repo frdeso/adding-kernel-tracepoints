@@ -48,7 +48,7 @@ TRACE_EVENT(sched_switch,
 		__entry->next_prio	= next->prio;
 	),
 
-#4	
+#5
 	TP_printk(
 	"prev_comm=%s prev_pid=%d prev_prio=%d prev_state=%s%s ==> next_comm=%s next_pid=%d next_prio=%d",
 		__entry->prev_comm, __entry->prev_pid, __entry->prev_prio,
@@ -61,8 +61,13 @@ TRACE_EVENT(sched_switch,
 		__entry->next_comm, __entry->next_pid, __entry->next_prio)
 );
 ~~~
+Here i will explain the five macro calls that are the arguments of this tracepoint declaration.
+#1	[TP_PROTO](http://lxr.linux.no/linux+v3.7.5/include/linux/tracepoint.h#L101)
 
-
+#2
+#3
+#4
+#5
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 
 

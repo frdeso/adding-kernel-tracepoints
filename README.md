@@ -10,6 +10,8 @@ Once upon a time there was a Linux Kernel tracing suite called LTTng that was cr
 
 How static tracepoints are add to the Linux Kernel?
 I first started by looking inside the kernel to know how tracepoint were added.
+
+###How to add a tracepoint in the kernel
 To add a tracepoint, one has to use that macro [TRACE_EVENT](http://lxr.linux.no/linux+v3.7.4/include/linux/tracepoint.h#L388).
 The use of this macro is shown in the next code snippet. In this example, we can see that the event declared is the sched_switch which is a very commun event.
 ~~~sh
@@ -73,7 +75,9 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 
 
-Page fault : Discussions on the Linux Kernel Mailing List
+###Information about page fault tracepoint
+
+Discussions on the Linux Kernel Mailing List
 
 [1] https://lkml.org/lkml/2010/11/10/89
 

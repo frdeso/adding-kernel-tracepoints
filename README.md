@@ -75,7 +75,15 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 
 
-###Information about page fault tracepoint
+###Pagefault tracepoint
+After discussion with my mentor in this project, we have reached the conclusion that i should focus on adding
+the pagefault Trace point in the kernel. This will be done in those three steps : 
+
+1.	Create a patch using adding the tracepoint. I will study the already submitted patches on the LKML (see [1] and [2]).
+	and adapt them considering the comments from the kernel developers.
+2.	Submitting the patch to the LTTng team for comments, code review and testing.
+3.	Submitting the patch on the LKML emphasizing the fact that this patch has been tested and has prove itself useful.
+
 
 Discussions on the Linux Kernel Mailing List
 

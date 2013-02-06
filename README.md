@@ -85,7 +85,7 @@ Discussions on the Linux Kernel Mailing List
 
 ####Notes from those discussions
 
-Some of the comments were about the use cases of this tracepoint.
+Some of the comments were about the use cases of this tracepoint. Maintainers were not sure of the when this tracepoint would be useful.
 
 ###Questions? 
 

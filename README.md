@@ -74,10 +74,19 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 
+##Pagefault
+### What really are pagefault?
+
+A page fault  is a trap to the software raised by the hardware when a program accesses a page that is mapped in the virtual address space, but not loaded in physical memory. [Wikipedia](http://en.wikipedia.org/wiki/Page_fault)
+
+It's important to note that a pagefault is not a error or a problem. It is a necessary downside of having virtual memory.
+1.	Minor pagefault:
+2.	Major pagefault:
+
 
 ###Pagefault tracepoint
-After discussion with my mentor in this project, we have reached the conclusion that i should focus on adding
-the pagefault Trace point in the kernel. This will be done in those three steps : 
+After discussions with my mentor in this project, we have reached the conclusion that i should focus on adding
+the pagefault tracepoint in the kernel. This will be done in those three steps : 
 
 1.	Create a patch using adding the tracepoint. I will study the already submitted patches on the LKML (see [1] and [2]).
 	and adapt them considering the comments from the kernel developers.

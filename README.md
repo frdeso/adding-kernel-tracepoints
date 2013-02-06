@@ -80,6 +80,7 @@ The first part of the analysis was to find what were the tracepoint already in p
 A page fault  is a trap to the software raised by the hardware when a program accesses a page that is mapped in the virtual address space, but not loaded in physical memory. [Wikipedia](http://en.wikipedia.org/wiki/Page_fault)
 
 It's important to note that a pagefault is not a error or a problem. It is a necessary downside of having virtual memory.
+
 1.	Minor pagefault:
 2.	Major pagefault:
 

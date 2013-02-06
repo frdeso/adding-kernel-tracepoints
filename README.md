@@ -83,6 +83,10 @@ Discussions on the Linux Kernel Mailing List
 
 [2] https://lkml.org/lkml/2011/4/29/488
 
+####Notes from those discussions
+
+Some of the comments were about the use cases of this tracepoint.
+
 ###Questions? 
 
 1. How to handle recursive page faulting. Can the tracer page fault during the recording of a page fault?

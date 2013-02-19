@@ -85,6 +85,7 @@ execute a instruction that might put it in a illegal state.
 ####Trap tracepoint
 
 ~~~sh
+#1
 DECLARE_EVENT_CLASS(trap,
 
 	TP_PROTO(int id),
@@ -101,14 +102,14 @@ DECLARE_EVENT_CLASS(trap,
 
 	TP_printk("number=%d", __entry->id)
 );
-
+#2
 DEFINE_EVENT(trap, trap_entry,
 
 	TP_PROTO(int id),
 
 	TP_ARGS(id)
 );
-
+#3
 DEFINE_EVENT(trap, trap_exit,
 
 	TP_PROTO(int id),
@@ -117,6 +118,14 @@ DEFINE_EVENT(trap, trap_exit,
 );
 
 ~~~
+1.	This declare a class of tracepoint. The macro __TP_PROTO__ decribe the prototype of the fonction. We can
+	that the resulting function will have 1 argument which is a integer named id. __TP_ARGS__ define the 
+	function signature.(Difference between TP_PROTO?). __TP_STRUCT_entry__ could be seen as a standard C struct.
+	__TP_fast_assign__ save the value that needs to be save for that particular set of tracepoint. Here we save 
+	the ID of the trap. TP_printk describe how the string printed in the kernel log should be formated.
+2.	This declare the __trace_trap_entry__ tracepoint.
+3.	This declare the __trace_trap_exit__ tracepoint.
+
 
 ##Pagefault
 ### What really are pagefault?

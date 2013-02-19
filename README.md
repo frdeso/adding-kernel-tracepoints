@@ -81,6 +81,43 @@ execute a instruction that might put it in a illegal state.
 4.	Hardware Breakpoint
 5.	(Any others?)
 
+###Implementation
+####Trap tracepoint
+
+~~~sh
+DECLARE_EVENT_CLASS(trap,
+
+	TP_PROTO(int id),
+
+	TP_ARGS(id),
+
+	TP_STRUCT__entry(
+		__field(	int,	id	)
+	),
+
+	TP_fast_assign(
+		__entry->id = id;
+	),
+
+	TP_printk("number=%d", __entry->id)
+);
+
+DEFINE_EVENT(trap, trap_entry,
+
+	TP_PROTO(int id),
+
+	TP_ARGS(id)
+);
+
+DEFINE_EVENT(trap, trap_exit,
+
+	TP_PROTO(int id),
+
+	TP_ARGS(id)
+);
+
+~~~
+
 ##Pagefault
 ### What really are pagefault?
 

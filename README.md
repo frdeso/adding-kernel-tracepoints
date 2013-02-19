@@ -79,7 +79,7 @@ A trap is a the software equivalent of a hardware interrupt. The process traps w
 execute a instruction that might put it in a illegal state. 
 
 1.	Division by zero
-2.	Illegal memory access. Jump at an illegale address
+2.	Jump to an illegale address
 3.	Access virtual address not in main memory.
 4.	(Any others?)
 

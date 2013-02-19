@@ -116,8 +116,36 @@ DEFINE_EVENT(trap, trap_exit,
 
 	TP_ARGS(id)
 );
-
 ~~~
+
+~~~sh
+/* Interrupts/Exceptions */
+ 93 enum {
+ 94         X86_TRAP_DE = 0,        /*  0, Divide-by-zero */
+ 95         X86_TRAP_DB,            /*  1, Debug */
+ 96         X86_TRAP_NMI,           /*  2, Non-maskable Interrupt */
+ 97         X86_TRAP_BP,            /*  3, Breakpoint */
+ 98         X86_TRAP_OF,            /*  4, Overflow */
+ 99         X86_TRAP_BR,            /*  5, Bound Range Exceeded */
+100         X86_TRAP_UD,            /*  6, Invalid Opcode */
+101         X86_TRAP_NM,            /*  7, Device Not Available */
+102         X86_TRAP_DF,            /*  8, Double Fault */
+103         X86_TRAP_OLD_MF,        /*  9, Coprocessor Segment Overrun */
+104         X86_TRAP_TS,            /* 10, Invalid TSS */
+105         X86_TRAP_NP,            /* 11, Segment Not Present */
+106         X86_TRAP_SS,            /* 12, Stack Segment Fault */
+107         X86_TRAP_GP,            /* 13, General Protection Fault */
+108         X86_TRAP_PF,            /* 14, Page Fault */
+109         X86_TRAP_SPURIOUS,      /* 15, Spurious Interrupt */
+110         X86_TRAP_MF,            /* 16, x87 Floating-Point Exception */
+111         X86_TRAP_AC,            /* 17, Alignment Check */
+112         X86_TRAP_MC,            /* 18, Machine Check */
+113         X86_TRAP_XF,            /* 19, SIMD Floating-Point Exception */
+         X86_TRAP_IRET = 32,     /* 32, IRET Exception */
+ }
+~~~
+
+
 This is the implementation of 2 trap tracepoints. Once those are declare, it is possible the call the tracepoints by 
 calling the trace_trap_entry and trace_trap_exit functions.
 

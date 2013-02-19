@@ -121,28 +121,28 @@ DEFINE_EVENT(trap, trap_exit,
 ~~~sh
 /*arch/x86/include/asm/traps.h*/
 /* Interrupts/Exceptions */
- 93 enum {
- 94         X86_TRAP_DE = 0,        /*  0, Divide-by-zero */
- 95         X86_TRAP_DB,            /*  1, Debug */
- 96         X86_TRAP_NMI,           /*  2, Non-maskable Interrupt */
- 97         X86_TRAP_BP,            /*  3, Breakpoint */
- 98         X86_TRAP_OF,            /*  4, Overflow */
- 99         X86_TRAP_BR,            /*  5, Bound Range Exceeded */
-100         X86_TRAP_UD,            /*  6, Invalid Opcode */
-101         X86_TRAP_NM,            /*  7, Device Not Available */
-102         X86_TRAP_DF,            /*  8, Double Fault */
-103         X86_TRAP_OLD_MF,        /*  9, Coprocessor Segment Overrun */
-104         X86_TRAP_TS,            /* 10, Invalid TSS */
-105         X86_TRAP_NP,            /* 11, Segment Not Present */
-106         X86_TRAP_SS,            /* 12, Stack Segment Fault */
-107         X86_TRAP_GP,            /* 13, General Protection Fault */
-108         X86_TRAP_PF,            /* 14, Page Fault */
-109         X86_TRAP_SPURIOUS,      /* 15, Spurious Interrupt */
-110         X86_TRAP_MF,            /* 16, x87 Floating-Point Exception */
-111         X86_TRAP_AC,            /* 17, Alignment Check */
-112         X86_TRAP_MC,            /* 18, Machine Check */
-113         X86_TRAP_XF,            /* 19, SIMD Floating-Point Exception */
-         X86_TRAP_IRET = 32,     /* 32, IRET Exception */
+ enum {
+        X86_TRAP_DE = 0,        /*  0, Divide-by-zero */
+        X86_TRAP_DB,            /*  1, Debug */
+        X86_TRAP_NMI,           /*  2, Non-maskable Interrupt */
+        X86_TRAP_BP,            /*  3, Breakpoint */
+        X86_TRAP_OF,            /*  4, Overflow */
+        X86_TRAP_BR,            /*  5, Bound Range Exceeded */
+        X86_TRAP_UD,            /*  6, Invalid Opcode */
+        X86_TRAP_NM,            /*  7, Device Not Available */
+        X86_TRAP_DF,            /*  8, Double Fault */
+        X86_TRAP_OLD_MF,        /*  9, Coprocessor Segment Overrun */
+        X86_TRAP_TS,            /* 10, Invalid TSS */
+        X86_TRAP_NP,            /* 11, Segment Not Present */
+        X86_TRAP_SS,            /* 12, Stack Segment Fault */
+        X86_TRAP_GP,            /* 13, General Protection Fault */
+        X86_TRAP_PF,            /* 14, Page Fault */
+        X86_TRAP_SPURIOUS,      /* 15, Spurious Interrupt */
+        X86_TRAP_MF,            /* 16, x87 Floating-Point Exception */
+        X86_TRAP_AC,            /* 17, Alignment Check */
+        X86_TRAP_MC,            /* 18, Machine Check */
+        X86_TRAP_XF,            /* 19, SIMD Floating-Point Exception */
+        X86_TRAP_IRET = 32,     /* 32, IRET Exception */
  }
 ~~~
 

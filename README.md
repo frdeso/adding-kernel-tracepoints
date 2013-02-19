@@ -119,6 +119,7 @@ DEFINE_EVENT(trap, trap_exit,
 ~~~
 
 ~~~sh
+/*arch/x86/include/asm/traps.h*/
 /* Interrupts/Exceptions */
  93 enum {
  94         X86_TRAP_DE = 0,        /*  0, Divide-by-zero */

@@ -81,8 +81,13 @@ A page fault  is a trap to the software raised by the hardware when a program ac
 
 It's important to note that a pagefault is not a error or a problem. It is a necessary downside of having virtual memory.
 
-1.	Minor pagefault:
-2.	Major pagefault:
+1.	Minor pagefault: Minor pagefault happen when the page is in main memory but the Memory Management
+	Unit haven marked it has loaded. This may happen when another process had load that page at a previous 
+	moment. So the system has to initialize that page. This work is typically has a negligable impact on the 
+	latency of the system.
+2.	Major pagefault: Major page fault occur when a process need virtual memory address that is not translate to a
+	physical memory addresse. The page is still on the hard drive and has to be load in the main memory. This has
+	may have a significant impact of the latency of the system.
 
 
 ###Pagefault tracepoint

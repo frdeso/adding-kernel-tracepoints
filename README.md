@@ -73,6 +73,9 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 
 
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
+##Traps
+###What is a system trap?
+A trap
 
 ##Pagefault
 ### What really are pagefault?

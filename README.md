@@ -1,9 +1,6 @@
 adding-kernel-tracepoints
 =========================
 
-Once upon a time there was a Linux Kernel tracing suite called LTTng that was creating its own patch to add tracepoints in the kernel.
-
-
 
 ##Repository of my analysis on tracepoints currently in the Linux kernel.
 
@@ -75,13 +72,14 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
 ##Traps
 ###What is a system trap?
-A trap is a the software equivalent of a hardware interrupt. The process traps when it is about to
+A trap is the software equivalent of a hardware interrupt. The process traps when it is about to
 execute a instruction that might put it in a illegal state. 
 
 1.	Division by zero
 2.	Jump to an illegale address
 3.	Access virtual address not in main memory.
-4.	(Any others?)
+4.	Hardware Breakpoint
+5.	(Any others?)
 
 ##Pagefault
 ### What really are pagefault?

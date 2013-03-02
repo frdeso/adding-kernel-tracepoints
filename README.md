@@ -118,6 +118,21 @@ DEFINE_EVENT(trap, trap_exit,
 );
 ~~~
 
+
+This is the implementation of 2 trap tracepoints. Once those are declare, it is possible the call the tracepoints by 
+calling the trace_trap_entry and trace_trap_exit functions.
+
+1.	This declare a class of tracepoint. The macro __TP_PROTO__ decribe the prototype of the fonction. We can
+	that the resulting function will have 1 argument which is a integer named id. __TP_ARGS__ define the 
+	function signature.(Difference between TP_PROTO?). __TP_STRUCT_entry__ could be seen as a standard C struct.
+	__TP_fast_assign__ save the value that needs to be save for that particular set of tracepoint. Here we save 
+	the ID of the trap. TP_printk describe how the string printed in the kernel log should be formated.
+2.	This declare the __trace_trap_entry__ tracepoint.
+3.	This declare the __trace_trap_exit__ tracepoint.
+
+
+
+
 ~~~sh
 /*arch/x86/include/asm/traps.h*/
 /* Interrupts/Exceptions */
@@ -145,19 +160,6 @@ DEFINE_EVENT(trap, trap_exit,
         X86_TRAP_IRET = 32,     /* 32, IRET Exception */
  }
 ~~~
-
-
-This is the implementation of 2 trap tracepoints. Once those are declare, it is possible the call the tracepoints by 
-calling the trace_trap_entry and trace_trap_exit functions.
-
-1.	This declare a class of tracepoint. The macro __TP_PROTO__ decribe the prototype of the fonction. We can
-	that the resulting function will have 1 argument which is a integer named id. __TP_ARGS__ define the 
-	function signature.(Difference between TP_PROTO?). __TP_STRUCT_entry__ could be seen as a standard C struct.
-	__TP_fast_assign__ save the value that needs to be save for that particular set of tracepoint. Here we save 
-	the ID of the trap. TP_printk describe how the string printed in the kernel log should be formated.
-2.	This declare the __trace_trap_entry__ tracepoint.
-3.	This declare the __trace_trap_exit__ tracepoint.
-
 
 
 ##Pagefault

@@ -132,7 +132,8 @@ calling the trace_trap_entry and trace_trap_exit functions.
 
 
 
-Here are the different traps that are present in the x86 architechture.
+Here are the different traps that are present in the x86 architecture. I suppose that the amd64(or x86_64) 
+architecture use those as well.
 
 ~~~sh
 /*arch/x86/include/asm/traps.h*/

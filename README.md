@@ -114,33 +114,33 @@ architecture use those as well.
 #1
 DECLARE_EVENT_CLASS(trap,
 
-	TP_PROTO(int id),
+	TP_PROTO(int trap_nb),
 
 	TP_ARGS(id),
 
 	TP_STRUCT__entry(
-		__field(	int,	id	)
+		__field(	int,	trap_nb	)
 	),
 
 	TP_fast_assign(
-		__entry->id = id;
+		__entry->trap_nb = trap_nb;
 	),
 
-	TP_printk("number=%d", __entry->id)
+	TP_printk("number=%d", __entry->trap_nb)
 );
 #2
 DEFINE_EVENT(trap, trap_entry,
 
-	TP_PROTO(int id),
+	TP_PROTO(int trap_nb),
 
-	TP_ARGS(id)
+	TP_ARGS(trap_nb)
 );
 #3
 DEFINE_EVENT(trap, trap_exit,
 
-	TP_PROTO(int id),
+	TP_PROTO(int trap_nb),
 
-	TP_ARGS(id)
+	TP_ARGS(trap_nb)
 );
 ~~~
 

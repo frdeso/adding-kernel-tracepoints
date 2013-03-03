@@ -3,6 +3,7 @@
 int main()
 {
 	float a = 18, b = 0;
-	printf("a: %f , b = %f, result : %f", a,b,(a/b));
+	float c = a/b;
+	printf("a: %f , b = %f, result : %f\n", a,b,c);
 	return 0;
 }

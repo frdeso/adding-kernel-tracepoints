@@ -206,8 +206,66 @@ to record as much traps as possible.
 
 #### LTTng probe
 
+A LTTng probe is a kernel module that is install in order to trace a system. This section will discuss
+of the modifications that i had to make in [lttng-modules](http://git.lttng.org/?p=lttng-modules.git;a=summary) 
+in order to trace my first tracepoint.
+
+##### What is a kernel module?
+Here is the definition of a kernel module on linux.die.net
+> Modules are pieces of code that can be loaded and unloaded 
+into the kernel upon demand. They extend the functionality of the kernel without the need to
+reboot the system. For example, one type of module is the device driver, which allows the
+kernel to access hardware connected to the system. Without modules, we would have to build 
+monolithic kernels and add new functionality directly into the kernel image. Besides having
+larger kernels, this has the disadvantage of requiring us to rebuild and reboot the kernel 
+every time we want new functionality.[1]
+
+[1] http://linux.die.net/lkmpg/x40.html
+
+##### Files
+In order to have a working lttng-probe someone needs to add 3 files and modify 1.
+
+##### probes/lttng-probe-trap.c
+[Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/probes/lttng-probe-trap.c)
+~~~sh
+/* probes/lttng-probe-trap.c */
+
+/* ... */
+
+#include <linux/module.h>
+
+/* ... */
+
+#include <trace/events/trap.h>
+#include "../wrapper/tracepoint.h"
+
+/* ... */
+
+#define LTTNG_PACKAGE_BUILD
+#define CREATE_TRACE_POINTS
+#define TRACE_INCLUDE_PATH ../instrumentation/events/lttng-module
+
+#include "../instrumentation/events/lttng-module/trap.h"
+~~~
+##### instrumentation/events/lttng-module/trap.h
+[Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/instrumentation/events/lttng-module/trap.h)
 
 
+##### instrumentation/events/mainline/trap.h
+[Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/instrumentation/events/mainline/trap.h)
+
+##### probes/Makefile
+
+I had to add the line #18 in order to build the module.
+
+~~~sh
+/* ... */
+     17 obj-m += lttng-probe-power.o
+     18 +obj-m += lttng-probe-trap.o
+     19 
+     20 obj-m += lttng-probe-statedump.o
+/* ... */
+~~~
 
 ##Pagefault
 ### What really are pagefault?

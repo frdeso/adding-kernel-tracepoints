@@ -161,6 +161,7 @@ Now that those are declared i just need to add this header file in a file to use
 This is what i had done in the file arch/x86/kernel/traps.c.
 
 ~~~sh
+/* arch/x86/kernel/traps.c */
 /* ........ */
    34 #include <linux/mm.h>
    35 #include <linux/smp.h>
@@ -181,6 +182,7 @@ therein order to test the other part of my assignement which is to implement the
 that i used a printk for debugging.
 
 ~~~sh
+/* arch/x86/kernel/traps.c */
  /* ........ */
 
    144 static void __kprobes

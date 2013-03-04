@@ -181,7 +181,7 @@ The hard part is to find a location where the tracepoint will have less effect o
 I have placed it in the <code>do_trap()</code> function which, wierdly enough is not call by all traps. I chose to place it 
 therein order to test the other part of my assignement which is to implement the lttng-probe for this tracepoint.  You can also
 that i used a <code>printk()</code> for debugging. I will have to find the right function to place the tracepoint
-for as much traps as possible.
+to record as much traps as possible.
 
 ~~~sh
 /* arch/x86/kernel/traps.c */

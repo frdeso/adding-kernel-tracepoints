@@ -157,6 +157,48 @@ calling the trace_trap_entry and trace_trap_exit functions.
 3.	This declare the __trace_trap_exit__ tracepoint.
 
 
+Now that those are declared i just need to add this header file in a file to use the ~~~sh trace_trap_entry() ~~~ function.
+This is what i had done in the file arch/x86/kernel/traps.c.
+
+~~~sh
+/* ........ */
+   34 #include <linux/mm.h>
+   35 #include <linux/smp.h>
+   36 #include <linux/io.h>
+   37 
+   38 #define CREATE_TRACE_POINTS
+   39 #include <trace/events/trap.h>
+   40 
+   41 #ifdef CONFIG_EISA
+   42 #include <linux/ioport.h>
+
+/* ........ */
+~~~
+
+The hard part is to find a location where the tracepoint will have less effect on the performance of the system.
+I have placed it in the ~~~sh do_trap()~~~ function which, wierdly enough is not call by all traps. I chose to place it 
+therein order to test the other part of my assignement which is to implement the lttng-probe for this tracepoint.  You can also
+that i used a printk for debugging.
+
+~~~sh
+ /* ........ */
+
+   144 static void __kprobes
+   145 do_trap(int trapnr, int signr, char *str, struct pt_regs *regs,
+   146         long error_code, siginfo_t *info)
+   147 {
+   148         struct task_struct *tsk = current;
+   149 
+   150         printk("<0>Trap occurs : %d\n",trapnr);
+   151         trace_trap_entry(trapnr);
+   152 
+   153         if (!do_trap_no_signal(tsk, trapnr, str, regs, error_code))
+   154                 return;
+ 
+ /* ........ */
+
+~~~
+
 
 ##Pagefault
 ### What really are pagefault?

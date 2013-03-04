@@ -208,7 +208,7 @@ to record as much traps as possible.
 
 A LTTng probe is a kernel module that is install in order to trace a system. This section will discuss
 of the modifications that i had to make in [lttng-modules](http://git.lttng.org/?p=lttng-modules.git;a=summary) 
-in order to trace my first tracepoint. Here is the [commit](https://github.com/frdeso/lttng-modules/commit/39058e586083e49ec00841da89491f40b2d0fc95) that group those modification 
+in order to trace my first tracepoint.
 
 ##### What is a kernel module?
 Here is the definition of a kernel module on linux.die.net
@@ -223,7 +223,9 @@ every time we want new functionality.[1]
 [1] http://linux.die.net/lkmpg/x40.html
 
 ##### Files
-In order to have a working lttng-probe someone needs to add 3 files and modify 1.
+In order to have a working lttng-probe someone needs to add 3 files and modify 1. 
+Here is the [commit](https://github.com/frdeso/lttng-modules/commit/39058e586083e49ec00841da89491f40b2d0fc95) 
+that group those modifications.
 
 ##### probes/lttng-probe-trap.c
 [Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/probes/lttng-probe-trap.c)

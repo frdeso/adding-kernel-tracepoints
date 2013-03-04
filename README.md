@@ -272,7 +272,21 @@ I had to add the line #18 in order to build the module.
 ###Test
 This section discuss about the way that i am testing the trap tracepoint.
 
+This is short program will be use to test the different traps that can be trigered manualy. 
 
+~~~sh
+/*
+ * File : onDemandTrap.c 
+ * Author : Francis Deslauriers fdeslaur@gmail.com
+ */
+ 1 #include <stdio.h>
+ 2 int main()
+ 3 {
+ 4         printf("X86_TRAP_BP, INT3\n");
+ 5         asm("INT3");
+ 6         return 0;
+ 7 }
+~~~
 
 ##Pagefault
 ### What really are pagefault?

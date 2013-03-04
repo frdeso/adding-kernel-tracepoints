@@ -116,7 +116,7 @@ DECLARE_EVENT_CLASS(trap,
 
 	TP_PROTO(int trap_nb),
 
-	TP_ARGS(id),
+	TP_ARGS(trap_nb),
 
 	TP_STRUCT__entry(
 		__field(	int,	trap_nb	)

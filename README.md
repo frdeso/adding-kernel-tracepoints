@@ -109,8 +109,11 @@ architecture use those as well.
 
 ###Implementation
 ####Trap tracepoint declaration
-
+Here is a copy of the [file](https://github.com/frdeso/adding-kernel-tracepoints/blob/master/trap.h) 
+that i used while compiling my kernel.
 ~~~sh
+/* include/kernel/trace/events/traps.h */
+
 #1
 DECLARE_EVENT_CLASS(trap,
 

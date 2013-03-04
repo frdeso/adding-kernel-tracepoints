@@ -157,7 +157,7 @@ calling the trace_trap_entry and trace_trap_exit functions.
 3.	This declare the __trace_trap_exit__ tracepoint.
 
 
-Now that those are declared i just need to add this header file in a file to use the ~~~sh trace_trap_entry() ~~~ function.
+Now that those are declared i just need to add this header file in a file to use the <code> trace_trap_entry() </code> function.
 This is what i had done in the file arch/x86/kernel/traps.c.
 
 ~~~sh
@@ -177,9 +177,9 @@ This is what i had done in the file arch/x86/kernel/traps.c.
 ~~~
 
 The hard part is to find a location where the tracepoint will have less effect on the performance of the system.
-I have placed it in the ~~~sh do_trap()~~~ function which, wierdly enough is not call by all traps. I chose to place it 
+I have placed it in the <code>do_trap()</code> function which, wierdly enough is not call by all traps. I chose to place it 
 therein order to test the other part of my assignement which is to implement the lttng-probe for this tracepoint.  You can also
-that i used a printk for debugging.
+that i used a <code>printk()</code> for debugging.
 
 ~~~sh
 /* arch/x86/kernel/traps.c */

@@ -272,7 +272,7 @@ I had to add the line #18 in order to build the module.
 ###Test
 This section discuss about the way that i am testing the trap tracepoint.
 
-This is short program will be use to test the different traps that can be trigered manualy. 
+This is short program will be use to test the different traps that can be triggered manualy. 
 
 ~~~sh
 /*
@@ -287,6 +287,8 @@ This is short program will be use to test the different traps that can be triger
  6         return 0;
  7 }
 ~~~
+
+I am not sure of how i will test the traps that cannot be triggered.
 
 ##Pagefault
 ### What really are pagefault?

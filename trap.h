@@ -8,29 +8,29 @@
 
 DECLARE_EVENT_CLASS(trap,
     TP_PROTO(int trap_nb),
-		    
+
     TP_ARGS(trap_nb),
-			
+
     TP_STRUCT__entry(
             __field(    int,    trap_nb )
     ),
     TP_fast_assign(
        __entry->trap_nb = trap_nb;
     ),
-				
+
     TP_printk("number=%d", __entry->trap_nb)
 );
 
 DEFINE_EVENT(trap, trap_entry,
-		
+
 	TP_PROTO(int trap_nb),
-		    
+
 	TP_ARGS(trap_nb)
 );
 DEFINE_EVENT(trap, trap_exit,
-	
+
 	TP_PROTO(int trap_nb),
-		    
+
 	TP_ARGS(trap_nb)
 );
 

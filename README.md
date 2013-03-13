@@ -109,8 +109,11 @@ architecture use those as well.
 
 ###Implementation
 ####Trap tracepoint declaration
-
+Here is a copy of the [file](https://github.com/frdeso/adding-kernel-tracepoints/blob/master/trap.h) 
+that i used while compiling my kernel.
 ~~~sh
+/* include/kernel/trace/events/traps.h */
+
 #1
 DECLARE_EVENT_CLASS(trap,
 
@@ -272,7 +275,7 @@ I had to add the line #18 in order to build the module.
 ###Test
 This section discuss about the way that i am testing the trap tracepoint.
 
-This is short program will be use to test the different traps that can be trigered manualy. 
+This is short program will be use to test the different traps that can be triggered manualy. 
 
 ~~~sh
 /*
@@ -287,6 +290,8 @@ This is short program will be use to test the different traps that can be triger
  6         return 0;
  7 }
 ~~~
+
+I am not sure of how i will test the traps that cannot be triggered.
 
 ##Pagefault
 ### What really are pagefault?

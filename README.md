@@ -69,7 +69,7 @@ Here i will explain the five macro calls that are the arguments of this tracepoi
 5.	[TP_printk](http://lxr.linux.no/linux+v3.7.5/include/trace/ftrace.h#L579)
 
 
-The first part of the analysis was to find what were the tracepoint already in page in the Linux Kenel.
+The first part of the analysis was to find what were the tracepoint already in place in the Linux Kenel.
 ##Traps
 ###What is a system trap?
 A trap is type of interruption. It is sometime thought as a synchronous interrupt. Those

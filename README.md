@@ -113,51 +113,59 @@ Here is a copy of the [file](https://github.com/frdeso/adding-kernel-tracepoints
 that i used while compiling my kernel.
 ~~~sh
 /* include/kernel/trace/events/traps.h */
-
 #1
-DECLARE_EVENT_CLASS(trap,
+TRACE_EVENT(trap_entry,
 
-	TP_PROTO(int trap_nb),
+	TP_PROTO(struct pt_regs *regs, long trap),
 
-	TP_ARGS(trap_nb),
+	TP_ARGS(regs, trap),
 
 	TP_STRUCT__entry(
-		__field(	int,	trap_nb	)
+		__field(	long,		trap	)
+		__field(	unsigned long,	ip	)
 	),
 
 	TP_fast_assign(
-		__entry->trap_nb = trap_nb;
+		__entry->trap	= trap;
+		__entry->ip	= regs ? instruction_pointer(regs) : 0UL;
 	),
 
-	TP_printk("number=%d", __entry->trap_nb)
+	TP_printk("number=%ld ip=%lu", __entry->trap, __entry->ip)
 );
+
 #2
-DEFINE_EVENT(trap, trap_entry,
+TRACE_EVENT(trap_exit,
 
-	TP_PROTO(int trap_nb),
+	TP_PROTO(long trap),
 
-	TP_ARGS(trap_nb)
+	TP_ARGS(trap),
+
+	TP_STRUCT__entry(
+		__field(	long,	trap	)
+	),
+
+	TP_fast_assign(
+		__entry->trap	= trap;
+	),
+
+	TP_printk("number=%ld", __entry->trap)
 );
-#3
-DEFINE_EVENT(trap, trap_exit,
 
-	TP_PROTO(int trap_nb),
 
-	TP_ARGS(trap_nb)
-);
 ~~~
 
 
 This is the implementation of 2 trap tracepoints. Once those are declare, it is possible the call the tracepoints by 
 calling the trace_trap_entry and trace_trap_exit functions.
 
-1.	This declare a class of tracepoint. The macro __TP_PROTO__ decribe the prototype of the fonction. We can
-	that the resulting function will have 1 argument which is a integer named id. __TP_ARGS__ define the 
-	function signature.(Difference between TP_PROTO?). __TP_STRUCT_entry__ could be seen as a standard C struct.
-	__TP_fast_assign__ save the value that needs to be save for that particular set of tracepoint. Here we save 
-	the ID of the trap. TP_printk describe how the string printed in the kernel log should be formated.
-2.	This declare the __trace_trap_entry__ tracepoint.
-3.	This declare the __trace_trap_exit__ tracepoint.
+The macro __TP_PROTO__ decribe the prototype of the fonction. We can
+that the resulting function will have 1 argument which is a integer named id. __TP_ARGS__ define the 
+function signature.(Difference between TP_PROTO?). __TP_STRUCT_entry__ could be seen as a standard C struct.
+__TP_fast_assign__ save the value that needs to be save for that particular set of tracepoint. Here we save 
+the ID of the trap. TP_printk describe how the string printed in the kernel log should be formated.
+
+1.	This declare the __trace_trap_entry__ tracepoint.
+2.	This declare the __trace_trap_exit__ tracepoint.
 
 ####Trap tracepoint localization
 

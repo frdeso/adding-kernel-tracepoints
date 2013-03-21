@@ -6,32 +6,40 @@
 
 #include <linux/tracepoint.h>
 
-DECLARE_EVENT_CLASS(trap,
-    TP_PROTO(int trap_nb),
+TRACE_EVENT(trap_entry,
 
-    TP_ARGS(trap_nb),
+	TP_PROTO(struct pt_regs *regs, long trap),
 
-    TP_STRUCT__entry(
-            __field(    int,    trap_nb )
-    ),
-    TP_fast_assign(
-       __entry->trap_nb = trap_nb;
-    ),
+	TP_ARGS(regs, trap),
 
-    TP_printk("number=%d", __entry->trap_nb)
+	TP_STRUCT__entry(
+		__field(	long,		trap	)
+		__field(	unsigned long,	ip	)
+	),
+
+	TP_fast_assign(
+		__entry->trap	= trap;
+		__entry->ip	= regs ? instruction_pointer(regs) : 0UL;
+	),
+
+	TP_printk("number=%ld ip=%lu", __entry->trap, __entry->ip)
 );
 
-DEFINE_EVENT(trap, trap_entry,
+TRACE_EVENT(trap_exit,
 
-	TP_PROTO(int trap_nb),
+	TP_PROTO(long trap),
 
-	TP_ARGS(trap_nb)
-);
-DEFINE_EVENT(trap, trap_exit,
+	TP_ARGS(trap),
 
-	TP_PROTO(int trap_nb),
+	TP_STRUCT__entry(
+		__field(	long,	trap	)
+	),
 
-	TP_ARGS(trap_nb)
+	TP_fast_assign(
+		__entry->trap	= trap;
+	),
+
+	TP_printk("number=%ld", __entry->trap)
 );
 
 #endif /* _TRACE_TRAP_H */

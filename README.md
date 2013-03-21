@@ -253,11 +253,11 @@ that group those modifications.
 #include "../instrumentation/events/lttng-module/trap.h"
 ~~~
 ##### instrumentation/events/lttng-module/trap.h
-[Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/instrumentation/events/lttng-module/trap.h)
+[Implementation](https://github.com/frdeso/lttng-modules/blob/master/instrumentation/events/lttng-module/trap.h)
 
 
 ##### instrumentation/events/mainline/trap.h
-[Implementation](https://github.com/frdeso/lttng-modules/blob/e31629e986742946cfdeafdd5a68888a824ba798/instrumentation/events/mainline/trap.h)
+[Implementation](https://github.com/frdeso/lttng-modules/blob/master/instrumentation/events/mainline/trap.h)
 
 ##### probes/Makefile
 

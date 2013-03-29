@@ -245,6 +245,8 @@ to record as much traps as possible.
 
 /* 14, Page Fault */
 
+arch/x86/mm/fault.c:do_page_fault()
+
 /* 15, Spurious Interrupt */
 
 /* 16, x87 Floating-Point Exception */

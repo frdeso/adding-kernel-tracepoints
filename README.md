@@ -242,6 +242,11 @@ Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L213)
 
 /*  8, Double Fault */
 
+The kernel never returns from a double fault, there is only a trace_trap_entry for this trap.
+
+[Source](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L239)
+
+
 /*  9, Coprocessor Segment Overrun */
 
 /* 10, Invalid TSS */

@@ -225,7 +225,7 @@ this list to make sure i dont miss one of the trap.
 
 2. __/*  1, Debug */__
 
-Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L393)
+	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L393)
 
 3. __/*  2, Non-maskable Interrupt */__
 
@@ -266,16 +266,15 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 
 12. __/* 11, Segment Not Present */__
 
-In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L218)
+	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L218)
 
 13. __/* 12, Stack Segment Fault */__
 
-In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L220)
+	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L220)
 
 14. __/* 13, General Protection Fault */__
 
-Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L260)
-
+	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L260)
 The kernel never returns from a double fault, there is only a trace_trap_entry for this trap.
 
 15. __/* 14, Page Fault */__
@@ -286,21 +285,21 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
  
 17. __/* 16, x87 Floating-Point Exception */__
 
-Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L562)
+	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L562)
 
 18. __/* 17, Alignment Check */__
 
-In DO_ERROR_INFO macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L222)
+	In DO_ERROR_INFO macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L222)
 
 19. __/* 18, Machine Check */__
 
 20. __/* 19, SIMD Floating-Point Exception */__
 
-Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L577)
+	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L577)
 
 21. __/* 32, IRET Exception */__
 
-Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L655)
+	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L655)
 
 
 #### LTTng probe

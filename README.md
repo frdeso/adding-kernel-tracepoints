@@ -217,6 +217,8 @@ to record as much traps as possible.
 #####Traps
 /*  0, Divide-by-zero */
 
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L209)
+
 /*  1, Debug */
 
 /*  2, Non-maskable Interrupt */
@@ -225,9 +227,16 @@ to record as much traps as possible.
 
 /*  4, Overflow */
 
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L211)
+
 /*  5, Bound Range Exceeded */
 
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L212)
+
 /*  6, Invalid Opcode */
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L213)
 
 /*  7, Device Not Available */
 
@@ -245,7 +254,7 @@ to record as much traps as possible.
 
 /* 14, Page Fault */
 
-arch/x86/mm/fault.c:do_page_fault()
+	arch/x86/mm/fault.c:do_page_fault()
 
 /* 15, Spurious Interrupt */
 

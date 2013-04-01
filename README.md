@@ -227,9 +227,13 @@ Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L209)
 
 /*  1, Debug */
 
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L393)
+
 /*  2, Non-maskable Interrupt */
 
 /*  3, Breakpoint */
+
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L307)
 
 /*  4, Overflow */
 
@@ -239,30 +243,57 @@ Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L211)
 
 /*  5, Bound Range Exceeded */
 
+In DO_ERROR macro.
 Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L212)
 
 /*  6, Invalid Opcode */
+
+In DO_ERROR_INFO macro.
 
 Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L213)
 
 /*  7, Device Not Available */
 
+I dont know how it is handle... This function is called 
+<code>set_intr_gate(X86_TRAP_NM, &device_not_available);</code>
+[here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L713)
+
 /*  8, Double Fault */
 
-The kernel never returns from a double fault, there is only a trace_trap_entry for this trap.
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L239)
 
-[Source](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L239)
+The kernel never returns from a double fault, there is only a trace_trap_entry for this trap.
 
 
 /*  9, Coprocessor Segment Overrun */
 
+In DO_ERROR macro.
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L215)
+
 /* 10, Invalid TSS */
+
+In DO_ERROR macro.
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L217)
 
 /* 11, Segment Not Present */
 
+In DO_ERROR macro.
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L218)
+
 /* 12, Stack Segment Fault */
 
+In DO_ERROR macro.
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L220)
+
 /* 13, General Protection Fault */
+
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L260)
+
+The kernel never returns from a double fault, there is only a trace_trap_entry for this trap.
 
 /* 14, Page Fault */
 
@@ -272,13 +303,23 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 
 /* 16, x87 Floating-Point Exception */
 
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L562)
+
 /* 17, Alignment Check */
+
+In DO_ERROR_INFO macro.
+
+Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L222)
 
 /* 18, Machine Check */
 
 /* 19, SIMD Floating-Point Exception */
 
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L577)
+
 /* 32, IRET Exception */
+
+Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L655)
 
 
 #### LTTng probe

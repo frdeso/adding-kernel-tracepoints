@@ -247,9 +247,8 @@ this list to make sure i dont miss one of the trap.
 
 8. __/*  7, Device Not Available */__
 
-	I dont know how it is handle... This function is called 
-<code>set_intr_gate(X86_TRAP_NM, &device_not_available);</code>
-[here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L713)
+	Function declared
+[here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L640)
 
 9. __/* 8, Double Fault */__
 
@@ -300,7 +299,8 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 
 21. __/* 32, IRET Exception */__
 
-	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L655)
+	X86_32:	Handle
+[here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L665)
 
 
 #### LTTng probe

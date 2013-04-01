@@ -247,8 +247,7 @@ this list to make sure i dont miss one of the trap.
 
 8. __/*  7, Device Not Available */__
 
-	Function declared
-[here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L640)
+	Function declared [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L640)
 
 9. __/* 8, Double Fault */__
 
@@ -282,6 +281,8 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 	arch/x86/mm/fault.c:do_page_fault()
 
 16. __/* 15, Spurious Interrupt */__
+
+	Function declared [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L778)
  
 17. __/* 16, x87 Floating-Point Exception */__
 

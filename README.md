@@ -215,6 +215,10 @@ to record as much traps as possible.
 ~~~
 
 #####Traps
+
+The following lines expose where the tracepoint is placed in the de source code for each trap. I made 
+this list to make sure i dont miss one of the trap.
+
 /*  0, Divide-by-zero */
 
 Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L209)

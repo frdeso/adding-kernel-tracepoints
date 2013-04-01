@@ -216,10 +216,12 @@ to record as much traps as possible.
 
 #####Traps
 
-The following lines expose where the tracepoint is placed in the de source code for each trap. I made 
+The following lines expose where the tracepoint are placed in the de source code for each trap. I made 
 this list to make sure i dont miss one of the trap.
 
 /*  0, Divide-by-zero */
+
+In DO_ERROR_INFO macro.
 
 Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L209)
 
@@ -232,6 +234,7 @@ Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L209)
 /*  4, Overflow */
 
 
+In DO_ERROR macro.
 Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L211)
 
 /*  5, Bound Range Exceeded */

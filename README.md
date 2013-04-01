@@ -294,6 +294,8 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 
 19. __/* 18, Machine Check */__
 
+	
+
 20. __/* 19, SIMD Floating-Point Exception */__
 
 	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L577)

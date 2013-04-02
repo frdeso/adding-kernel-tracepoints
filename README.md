@@ -267,12 +267,13 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 12. __/* 11, Segment Not Present */__
 
 	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L218)
-
+	Checked
 13. __/* 12, Stack Segment Fault */__
 
-	x86_32:	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L220)
+	x86_32:	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L220) Checked
 
-	x86_64: Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L227)
+	x86_64: Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L227) Checked
+	
 14. __/* 13, General Protection Fault */__
 
 	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L260)
@@ -282,6 +283,7 @@ Checked
 15. __/* 14, Page Fault */__
 
 	arch/x86/mm/fault.c:do_page_fault()
+	Checked
 
 16. __/* 15, Spurious Interrupt */__
 
@@ -295,14 +297,15 @@ Checked
 18. __/* 17, Alignment Check */__
 
 	In DO_ERROR_INFO macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L222)
+	Checked
 
 19. __/* 18, Machine Check */__
-
 	
 
 20. __/* 19, SIMD Floating-Point Exception */__
 
 	Handle [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L577)
+	Checked
 
 21. __/* 32, IRET Exception */__
 

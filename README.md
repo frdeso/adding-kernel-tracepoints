@@ -229,6 +229,8 @@ this list to make sure i dont miss one of the trap.
 	Checked
 
 3. __/*  2, Non-maskable Interrupt */__
+	Handle [Here](http://lxr.linux.no/#linux+v3.8.5/arch/x86/kernel/nmi.c#L480)	
+	Checked
 
 4. __/*  3, Breakpoint */__
 
@@ -300,7 +302,7 @@ Checked
 	Checked
 
 19. __/* 18, Machine Check */__
-	
+	Not instrumented
 
 20. __/* 19, SIMD Floating-Point Exception */__
 
@@ -309,8 +311,9 @@ Checked
 
 21. __/* 32, IRET Exception */__
 
-	X86_32:	Handle
+	Only on X86_32:	Handle
 [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L665)
+Checked
 
 
 #### LTTng probe

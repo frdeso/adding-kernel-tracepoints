@@ -237,7 +237,7 @@ this list to make sure i dont miss one of the trap.
 
 5. __/*  4, Overflow */__
 
-	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L211)
+	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L211) Checked
 
 6. __/*  5, Bound Range Exceeded */__
 
@@ -249,7 +249,7 @@ this list to make sure i dont miss one of the trap.
 	Checked
 8. __/*  7, Device Not Available */__
 
-	Function declared [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L640)
+	Function declared [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L640) Checked
 
 9. __/* 8, Double Fault */__
 

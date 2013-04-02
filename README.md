@@ -262,7 +262,7 @@ The kernel never returns from a double fault, there is only a trace_trap_entry f
 	Checked
 11. __/* 10, Invalid TSS */__
 
-	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L217)
+	In DO_ERROR macro. Called [here](http://lxr.linux.no/linux+v3.8.5/arch/x86/kernel/traps.c#L217) Checked
 
 12. __/* 11, Segment Not Present */__
 

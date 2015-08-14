@@ -403,7 +403,7 @@ This is short program will be use to test the different traps that can be trigge
 I am not sure of how i will test the traps that cannot be triggered.
 
 ##Pagefault
-### What really are pagefault?
+### What really are pagefaults?
 
 A page fault  is a trap to the software raised by the hardware when a program accesses a page that is mapped in the virtual address space, but not loaded in physical memory. [Wikipedia](http://en.wikipedia.org/wiki/Page_fault)
 
